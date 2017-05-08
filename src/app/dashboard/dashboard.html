@@ -1,0 +1,108 @@
+<div class="page">
+<acme-navbar></acme-navbar>
+<div class="container">
+<div class="col-md-12">
+	<h3>Dashboard</h3>
+	<a ui-sref="dashboard" class="home-link">Home</a>
+	<span class="dashboard-subtitle ">  | Today Statistics</span>
+	<div class="badges-container col-md-12">
+		<div class="col-md-3 badges-stat">
+			<div class="container col-md-12 badges-inner">
+				<div class="col-md-2 icon"><i class="glyphicon glyphicon-user"></i></div>
+				<!-- <div class="col-md-10 badges-stat-desc">
+					<span class="badges-number">{{dashboard.newUser}}</span>
+					<span class="badges-title">New User</span>
+				</div> -->
+			</div>
+		</div>
+		<div class="col-md-3 badges-stat">
+			<div class="container col-md-12 badges-inner">
+				<div class="col-md-2 icon"><i class="glyphicon glyphicon-ok"></i></div>
+				<!-- <div class="col-md-10 badges-stat-desc">
+					<span class="badges-number">{{dashboard.newVerifiedUser}}</span>
+					<span class="badges-title">New Verified User</span>
+				</div> -->
+			</div>
+		</div>
+		<div class="col-md-3 badges-stat">
+			<div class="container col-md-12 badges-inner">
+				<div class="col-md-2 icon"><i class="glyphicon glyphicon-earphone"></i></div>
+				<!-- <div class="col-md-10 badges-stat-desc">
+					<span class="badges-number">{{dashboard.callAttempt}}</span>
+					<span class="badges-title">Call Attempt</span>
+				</div> -->
+			</div>
+		</div>
+		<div class="col-md-3 badges-stat">
+			<div class="container col-md-12 badges-inner">
+				<div class="col-md-2 icon"><i class="glyphicon glyphicon-transfer"></i></div>
+				<!-- <div class="col-md-10 badges-stat-desc">
+					<span class="badges-number">{{dashboard.avgCallAttempt}}</span>
+					<span class="badges-title">Incoming Call</span>
+				</div> -->
+			</div>
+		</div>
+	</div>
+	
+	<div class="container-chart col-md-12">
+	<h4 class="dashboard-subtitle ">User Statistics This Week</h4>
+		<div class="first-card week-badges">
+			<table>
+				<!-- <tr>
+					<td class="column-with-border">Quick Report for User Statistics</td>
+					<td class="column-data">Total New User This Week<br><i class="amount">{{dashboard.all}}</i></td>
+					<td class="column-data">Total User Until Today<br><i class="amount">{{dashboard.inrange}}</i></td>
+					<td class="column-data">Total New Verified User This Week<br><i class="amount">{{dashboard.allver}}</i></td>
+					<td class="column-data">Total Verified User Until Today<br><i class="amount">{{dashboard.inrangever}}</i></td>
+				</tr> -->
+			</table>
+		</div>
+		<br>
+		<!-- <div class="col-md-12 chart-card">
+			
+			<highchart id="userChart" config="dashboard.userChartConfig" class="span10"></highchart>
+		</div> -->
+		
+	</div>
+
+	<div class="container-chart col-md-12">
+		<div class="col-md-6">
+			<h4 class="dashboard-subtitle ">Call Statistics This Week</h4>
+			<div class="first-card week-badges">
+				<table>
+					<!-- <tr>
+						<td class="column-with-border">This Week</td>
+						<td class="column-data"><i class="amount">{{dashboard.attempt}}</i><br> Call Attempt</td>
+						<td class="column-data"><i class="amount">{{dashboard.incoming}} </i><br> Incoming Call</td>
+						<td class="column-data"><i class="amount">{{dashboard.all}} </i><br> Accepted Call</td>
+					</tr> -->
+				</table>
+			</div>
+			<div class="first-card chart-card">
+				<!-- <highchart id="callChart" config="dashboard.callChartConfig" class="span10"></highchart> -->
+			</div>
+		</div>
+		<div class="col-md-6">
+			<h4 class="dashboard-subtitle ">Device Used by User</h4>
+			<div class="chart-card">
+				<!-- <highchart id="callChart" config="dashboard.deviceChartConfig" class="span10"></highchart> -->
+    		</div>
+    		<div class="week-badges">
+				<table>
+					<!-- <tr>
+						<td class="column-with-border">This Week</td>
+						<td class="column-data"><i class="amount">{{dashboard.lenovo}}</i><br>Lenovo</td>
+						<td class="column-data"><i class="amount">{{dashboard.samsung}}</i><br>Samsung</td>
+						<td class="column-data"><i class="amount">{{dashboard.unknown}}</i><br>Unknown</td>
+						<td class="column-data"><i class="amount">{{dashboard.sony}}</i><br>Sony</td>
+						<td class="column-data"><i class="amount">{{dashboard.andromax}}</i><br>Andromax</td>
+					</tr> -->
+				</table>
+			</div>
+		</div>
+			
+		</div>
+	</div>
+</div>
+</div>
+</div>
