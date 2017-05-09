@@ -7,7 +7,6 @@
 
   /** @ngInject */
   function LoginController($rootScope, $location, $state, auth) {
-    
 
     // var vm = this;
 

@@ -39,14 +39,35 @@
         templateUrl: 'app/dashboard/dashboard.html',
         controller: 'DashboardController',
         controllerAs: 'dashboard',
-        requireLogin: true
+        requireLogin: false
       })
       .state('statistics', {
         url: '/statistics',
         templateUrl: 'app/statistics/statistics.html',
         controller: 'StatisticsController',
         controllerAs: 'statistics',
-        requireLogin: true
+        requireLogin: false
+      })
+      .state('onlineReputation', {
+        url: '/onlineReputation',
+        templateUrl: 'app/onlineReputation/onlineReputation.html',
+        controller: 'OnlineReputationController',
+        controllerAs: 'onlineReputation',
+        requireLogin: false
+      })
+      .state('customerNeeds', {
+        url: '/customerNeeds',
+        templateUrl: 'app/customerNeeds/customerNeeds.html',
+        controller: 'CustomerNeedsController',
+        controllerAs: 'customerNeeds',
+        requireLogin: false
+      })
+      .state('communityEngagement', {
+        url: '/communityEngagement',
+        templateUrl: 'app/communityEngagement/communityEngagement.html',
+        controller: 'CommunityEngagementController',
+        controllerAs: 'communityEngagement',
+        requireLogin: false
       })
       .state('settings', {
         url: '/settings',
