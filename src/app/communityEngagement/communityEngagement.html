@@ -1,0 +1,128 @@
+<div class="page">
+<acme-navbar></acme-navbar>
+<div class="container-fluid no-left-padding">
+<div class="col-md-2 no-left-padding">
+  <acme-sidebar></acme-sidebar>
+</div>
+<div class="col-md-9">
+  <h3 class="big-title">Community Engagement</h3>
+  <a ui-sref="dashboard" class="home-link">Home</a>
+  <span class="dashboard-subtitle ">  | Your Community Engagement Information</span>
+  <div class="clear"></div>
+
+  <div class="container-period col-md-12">
+    <div class="col-md-10 add-spacing">
+    <form name="frm" ng-submit="engagement.submitdate()"> 
+    <div class="col-md-4">
+      <span>From</span>
+    <p class="input-group">
+      <input type="text" class="form-control" uib-datepicker-popup="{{engagement.format}}" ng-model="engagement.starttime" is-open="engagement.popup1.opened" datepicker-options="engagement.dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+      <span class="input-group-btn">
+        <button type="button" class="btn btn-default" ng-click="engagement.open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+      </span>
+    </p>
+    </div> 
+    
+    <div class="col-md-4">
+    <span>To</span>
+    <p class="input-group">
+      <input type="text" class="form-control" uib-datepicker-popup="{{engagement.format}}" ng-model="engagement.endtime" is-open="engagement.popup2.opened" datepicker-options="engagement.dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+      <span class="input-group-btn">
+        <button type="button" class="btn btn-default" ng-click="engagement.open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+      </span>
+    </p>
+  </div>
+  <div class="col-md-4 padding-top-19" style="padding-top:19px;">
+    <span>&nbsp;</span>
+    <button type="submit" class="btn btn-default">See Information</button>
+  </div>  
+  </form>
+  </div>
+  </div>
+  <div class="clear"></div>
+  <hr class="separator-line">
+ <!--  <div class="separator-tabs">
+    <span>Your Performance in Engaging with Customer on Twitter</span>
+  </div> -->
+  <div class=" caption-container col-md-12">
+    <div class="first-caption col-md-12">
+        <div class="col-md-3">
+          <span class="number">{{engagement.retweets}}</span>
+          <span class="caption">Total Retweets</span>
+        </div>
+        <div class="col-md-3">
+          <span class="number">{{engagement.likes}}</span>
+          <span class="caption">Total Likes</span>
+        </div>
+        <div class="col-md-3">
+          <span class="number">{{engagement.replies}}</span>
+          <span class="caption">Total Replies</span>
+        </div>
+        <!-- <div class="last-caption col-md-3">
+          <span class="number">10</span>
+          <span class="caption">Mentions per day</span>
+        </div> -->
+      </div>
+      <div class="clear"></div>
+     <!--  <div class="second-caption col-md-12">
+      <div class="col-md-3">
+        <span class="number">100</span>
+        <span class="caption">Total Retweet</span>
+      </div>
+      <div class="col-md-3">
+        <span class="number">100</span>
+        <span class="caption">Total Likes</span>
+      </div>
+      <div class="col-md-3">
+        <span class="number">100</span>
+        <span class="caption">Total Mention + Replies</span>
+      </div>
+      <div class="last-caption col-md-3">
+        <span class="number">100</span>
+        <span class="caption">Overall Performance</span>
+      </div>
+    </div> -->
+  </div>
+
+  <div class="container-chart col-md-12">
+    <span class="home-link">Followers Growth</span>
+    <div class="col-md-12 chart-card">  
+      <highchart id="userChart" config="engagement.chartOptions" class="span10"></highchart>
+    </div>
+  </div>
+
+  <div class="container-chart col-md-12">
+    <span class="home-link">Engagement Rate</span>
+    <div class="col-md-12 chart-card">  
+      <highchart id="userChart" config="engagement.chartOptions2" class="span10"></highchart>
+    </div>
+  </div>
+
+  <div class="table-container col-md-12" >
+    <span class="home-link">Your Tweet Activity</span>
+    <span class="dashboard-subtitle ">  | Your Engagement Score per Tweet</span><br>
+    <table class="statistics-table">
+      <thead>
+        <tr class="head">
+        <td style="width:50%">Your Tweet</td>
+        <td>Retweets</td>
+        <td>Likes</td>
+        <td>Replies</td>
+        <td> </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="dt in engagement.myTweet">
+          <td>{{dt.text}}</td>
+          <td>{{dt.retweets}}</td>
+          <td>{{dt.likes}}</td>
+          <td>{{dt.replies}}</td>
+          <td><a href="">see details</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+</div>
+</div>

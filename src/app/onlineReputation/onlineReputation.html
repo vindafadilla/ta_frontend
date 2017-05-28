@@ -1,0 +1,105 @@
+<div class="page">
+<acme-navbar></acme-navbar>
+<div class="container-fluid no-left-padding">
+<div class="col-md-2 no-left-padding">
+  <acme-sidebar></acme-sidebar>
+</div>
+<div class="col-md-9">
+  <h3>Online Reputation</h3>
+  <a ui-sref="dashboard" class="home-link">Home</a>
+  <span class="dashboard-subtitle ">  | Your Online Reputation Information</span>
+  <div class="clear"></div>
+
+  <div class="container-period col-md-12">
+    <div class="col-md-10 add-spacing">
+    <form name="frm" ng-submit="reputation.submitDate()"> 
+    <div class="col-md-4">
+      <span>From</span>
+    <p class="input-group">
+      <input type="text" class="form-control" uib-datepicker-popup="{{reputation.format}}" ng-model="reputation.time.starttime" is-open="reputation.popup1.opened" datepicker-options="reputation.dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+      <span class="input-group-btn">
+        <button type="button" class="btn btn-default" ng-click="reputation.open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+      </span>
+    </p>
+    </div> 
+    
+    <div class="col-md-4">
+    <span>To</span>
+    <p class="input-group">
+      <input type="text" class="form-control" uib-datepicker-popup="{{reputation.format}}" ng-model="reputation.time.endtime" is-open="reputation.popup2.opened" datepicker-options="reputation.dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+      <span class="input-group-btn">
+        <button type="button" class="btn btn-default" ng-click="reputation.open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+      </span>
+    </p>
+  </div>
+  <div class="col-md-4 padding-top-19" style="padding-top:19px;">
+    <span>&nbsp;</span>
+    <button type="submit" class="btn btn-default">See Information</button>
+  </div>  
+  </form>
+  </div>
+  </div>
+  <div class="clear"></div>
+  <hr class="separator-line">
+ <!--  <div class="separator-tabs">
+    <span>Your Performance in Engaging with Customer on Twitter</span>
+  </div> -->
+  <h4 class="home-link">Based on</h4>
+  <div class="col-md-12 no-left-padding">
+    
+    <div class="col-md-6 no-left-padding">
+      <span class="home-link margin-bottom-5">Volume</span>
+      <div class=" caption-container col-md-12">
+        <div class="col-md-12">
+            <div class="col-md-6 reputation-caption">
+              <span class="number-caption">10</span>
+              <span class="caption">Total Tweets Posted</span>
+            </div>
+            <div class="col-md-6 reputation-caption">
+              <span class="number-caption">10</span>
+              <span class="caption">Total People Posted</span>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <span class="home-link  margin-bottom-5">Diversity</span>
+      <div class=" caption-container col-md-12">
+        <div class="col-md-12">
+          <div class="col-md-4 reputation-caption">
+            <span class="number-caption">10</span>
+            <span class="caption">Text</span>
+          </div>
+          <div class="col-md-4 reputation-caption">
+            <span class="number-caption">10</span>
+            <span class="caption">Photo</span>
+          </div>
+          <div class="col-md-4 reputation-caption">
+            <span class="number-caption">10</span>
+            <span class="caption">Video</span>
+          </div>
+      </div>
+      </div>
+    </div>
+
+    
+  </div>
+
+  <div class="container-chart col-md-12">
+    <span class="home-link">Validation</span>
+    <div class="col-md-12 chart-card">  
+      <highchart id="userChart" config="reputation.sentimentConfig" class="span10"></highchart>
+    </div>
+  </div>
+
+  <div class="container-chart col-md-12">
+    <span class="home-link">Relevance</span>
+    <div class="col-md-12 chart-card">  
+      <!-- <highchart id="userChart" config="dashboard.userChartConfig" class="span10"></highchart> -->
+    </div>
+  </div>
+
+</div>
+</div>
+</div>

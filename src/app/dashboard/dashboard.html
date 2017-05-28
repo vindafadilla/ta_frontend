@@ -1,0 +1,117 @@
+<div class="page">
+<acme-navbar></acme-navbar>
+<div class="container-fluid no-left-padding">
+<div class="col-md-2 no-left-padding">
+	<acme-sidebar></acme-sidebar>
+</div>
+<div class="col-md-10">
+	<h3 class="bolder-font">You're Social Media This Week</h3><br>
+	<span class="home-link">Online Reputation</span>
+	<span class="dashboard-subtitle ">  | Summary</span>
+	<div class="badges-container col-md-12">
+		<div class="col-md-3 badges-stat">
+			<div class="container col-md-12 badges-blue">
+				<h3>400.000</h3>
+				<span class="badges-description">Tweets About You</span><br>
+			</div>
+		</div>
+		<div class="col-md-9 badges-stat">
+			<div class="first-card week-badges">
+				<table>
+					<tr>
+						<td class="column-with-border">Reputation by Diversity</td>
+						<td class="column-data"><i class="amount">100</i><br> Text Only</td>
+						<td class="column-data"><i class="amount">100 </i><br> Text+Media</td>
+						<td class="column-data"><i class="amount">100</i><br> Media Only</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-chart col-md-12">
+		<div class="col-md-6">
+			<span class="dashboard-subtext ">Reputation by Validity</span><br>
+			<div class="first-card chart-card">
+				<highchart id="callChart" config="dashboard.sentimentConfig" class="span10"></highchart>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<span class="dashboard-subtext ">Reputation by Relevance</span><br>
+			<div class="chart-card">
+				<!-- <highchart id="callChart" config="dashboard.deviceChartConfig" class="span10"></highchart> -->
+    		</div>
+		</div>
+	</div>
+	<br>	
+	<div class="badges-container col-md-12 badges-container-padding">
+		<span class="home-link">Community Engagement</span>
+		<span class="dashboard-subtitle ">  | Summary</span><br><br>
+		<div class="clear"></div>
+
+		<div class="col-md-2 badges-stat">
+			<div class="container col-md-12 ce-badges-blue">
+				<h4>400</h4>
+				<span class="badges-description">Total Retweets</span><br>
+			</div>
+		</div>
+		<div class="col-md-2 badges-stat">
+			<div class="container col-md-12 ce-badges-white">
+				<h4>400</h4>
+				<span class="badges-description">Total Likes</span><br>
+			</div>
+		</div>
+		<div class="col-md-2 badges-stat">
+			<div class="container col-md-12 ce-badges-blue">
+				<h4>400</h4>
+				<span class="badges-description">Total Replies</span><br>
+			</div>
+		</div>
+		<div class="col-md-2 badges-stat">
+			<div class="container col-md-12 ce-badges-white">
+				<h4>400</h4>
+				<span class="badges-description">Total Mention</span><br>
+			</div>
+		</div>
+		<div class="col-md-2 badges-stat">
+			<div class="container col-md-12 ce-badges-blue">
+				<h4>400</h4>
+				<span class="badges-description">Followers Number</span><br>
+			</div>
+		</div>
+		<div class="col-md-2 badges-stat">
+			<div class="container col-md-12 ce-badges-white">
+				<h4>6.9%</h4>
+				<span class="badges-description">Engagement Rate</span><br>
+			</div>
+		</div>
+		
+	</div>
+	<div class="clear"></div>
+	<div class="container-chart col-md-12">
+	<span class="home-link">Overall Customer Need</span>
+	<span class="dashboard-subtitle ">  | Summary</span>
+		<div class="first-card week-badges top-margin-10">
+			<table>
+				<!-- <tr>
+					<td class="column-with-border">Quick Report for User Statistics</td>
+					<td class="column-data">Total New User This Week<br><i class="amount">{{dashboard.all}}</i></td>
+					<td class="column-data">Total User Until Today<br><i class="amount">{{dashboard.inrange}}</i></td>
+					<td class="column-data">Total New Verified User This Week<br><i class="amount">{{dashboard.allver}}</i></td>
+					<td class="column-data">Total Verified User Until Today<br><i class="amount">{{dashboard.inrangever}}</i></td>
+				</tr> -->
+			</table>
+		</div>
+		<br>
+		<!-- <div class="col-md-12 chart-card">
+			
+			<highchart id="userChart" config="dashboard.userChartConfig" class="span10"></highchart>
+		</div> -->
+		
+	</div>
+
+	
+	</div>
+</div>
+</div>
+</div>

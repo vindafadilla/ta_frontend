@@ -1,0 +1,26 @@
+<nav class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" ng-click="$ctrl.isCollapsed = !$ctrl.isCollapsed">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    </div>
+
+    <div uib-collapse="$ctrl.isCollapsed" class="navbar-collapse collapse" id="bs-example-navbar-collapse-6">
+    <!-- <div class="collapse navbar-collapse" > -->
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <img src="assets/images/logo.png" alt="QePon Logo" class="navbar-logo">
+          <a href="/">Twitter Analytics</a>
+        </li>
+        <li>
+          <a ui-sref="dashboard"><span>Dashboard</span></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

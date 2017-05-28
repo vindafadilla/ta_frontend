@@ -1,0 +1,239 @@
+(function() {
+  'use strict';
+
+  angular
+    .module('cdrsDashboard')
+    .controller('DashboardController', DashboardController);
+
+  /** @ngInject */
+  function DashboardController(cdrs) {
+
+    var vm = this;
+
+    vm.today = new Date("01/08/2016");
+    
+    vm.userChartData = populateUserChartData(vm.today);
+    vm.callChartData = populateCallChartData(vm.today);
+
+    getUserBadge(vm.today);
+    getWeeklyTotalUser(vm.today);
+
+    vm.chartOptions = {
+        chart: {
+            type: 'lineChart',
+            height: 350,
+            margin : {
+                top: 20,
+                right: 20,
+                bottom: 60,
+                left: 55
+            },
+            x: function(d){ return d.x; },
+            y: function(d){ return d.y; },
+            // useInteractiveGuideline: true,
+            dispatch: {
+                // stateChange: function(e){ console.log("stateChange"); },
+                // changeState: function(e){ console.log("changeState"); },
+                tooltipShow: function(e){ console.log("tooltipShow"); },
+                tooltipHide: function(e){ console.log("tooltipHide"); }
+            },
+            xAxis: {
+                tickFormat: function(d) {
+                    return d3.time.format('%d %b')(new Date(d));
+                },
+                tickSize:'5',
+                axisLabelDistance: 0,
+                staggerLabels: true,
+                showMaxMin: true,
+                duration: 500,
+            },
+            xScale : d3.time.scale(),
+            yAxis: {
+              tickFormat : function(d){
+                return d3.format('.0f')(d);
+               }
+            },
+            interpolate : "basis",
+            transitionDuration: 500,
+        }
+    };
+
+    function getUserBadge(date){
+
+        var starttime = moment(date).startOf('day').format("MM/DD/YYYY h:mm:ss A").toString();
+        var endtime = moment(date).endOf('day').format("MM/DD/YYYY h:mm:ss A").toString();
+
+        var userService = new cdrs.getUserCount();
+
+        userService.save({starttime , endtime} , function(callback){
+          vm.newUser = callback.inrange;
+          vm.newVerifiedUser = callback.inrangever;
+        });
+    }
+
+    function initializeDate(date){
+      
+      var dateRange = [];
+      var timestart = moment(date).startOf('isoweek').format("MM/DD/YYYY h:mm:ss A").toString();
+      
+      for (var d = new Date(timestart); d <= date; d.setDate(d.getDate() + 1)) {
+
+        var starttime = moment(d).startOf('day').format("MM/DD/YYYY h:mm:ss A").toString();
+        var timeformat = moment(starttime, "MM/DD/YYYY h:mm:ss A").valueOf();
+        dateRange.push({x : timeformat})
+
+      }
+
+      return dateRange;
+    }
+
+    function fetchUser(date, arr, key, index, service){
+
+      var starttime = moment(date).startOf('day').format("MM/DD/YYYY h:mm:ss A").toString();
+      var endtime = moment(date).endOf('day').format("MM/DD/YYYY h:mm:ss A").toString();
+
+      var serviceCall = service.save({starttime,endtime});
+        serviceCall.$promise.then(function(data){
+          if(key) { 
+            // console.log("cek");
+            arr[index].y = data.inrange;
+            console.log(data.inrange, data.inrangever, index)
+          }
+          //get verified user data
+          else{ 
+            arr[index].y = data.inrangever;
+            // console.log(callback.inrangever)
+          }
+      })
+    }
+
+    function loadUserData(date, key){
+
+      var dataArray = initializeDate(date);
+      
+
+      console.log(date)
+      var i=0;
+      var userService = new cdrs.getUserCount();
+      var timestart = moment(date).startOf('isoweek').format("MM/DD/YYYY h:mm:ss A").toString();
+      
+      console.log(timestart)
+      for (var d = new Date(timestart); d <= date; d.setDate(d.getDate() + 1)) {
+        var starttime = moment(d).startOf('day').format("MM/DD/YYYY h:mm:ss A").toString();
+        var endtime = moment(d).endOf('day').format("MM/DD/YYYY h:mm:ss A").toString();
+        // console.log(userService.save({starttime,endtime}));
+        fetchUser(d, dataArray, key, i, userService);
+        i++;
+      };
+
+      console.log(dataArray, dataArray.length)
+      return dataArray;
+    }
+
+    function populateUserChartData(date){
+      var user = loadUserData(date,1)
+      var verified = loadUserData(date,0)
+
+      return [
+          {
+              values: user, 
+              key: 'New User'
+          },
+          {
+              values: verified, 
+              key: 'New Verified User'
+          }
+      ];
+    }
+
+
+    function getWeeklyTotalUser(date){
+
+      var firstDayInWeek = moment(date).startOf('isoweek').format("MM/DD/YYYY h:mm:ss A").toString();
+
+      var starttime = moment(firstDayInWeek, "MM/DD/YYYY h:mm:ss A").startOf('day').format("MM/DD/YYYY h:mm:ss A").toString();
+      var endtime = moment(date).endOf('day').format("MM/DD/YYYY h:mm:ss A").toString();
+      
+      var user = new cdrs.getUserCount();
+
+      user.save({starttime, endtime}, function(callback){
+         vm.all = callback.all;
+         vm.allver = callback.allver;
+         vm.inrange = callback.inrange;
+         vm.inrangever = callback.inrangever;
+      });
+    }
+
+    function fetchCall(date, arr, key, index, service){
+
+      var starttime = moment(date).startOf('day').format("MM/DD/YYYY h:mm:ss A").toString();
+      var endtime = moment(date).endOf('day').format("MM/DD/YYYY h:mm:ss A").toString();
+
+      var serviceCall = service.save({starttime,endtime});
+        serviceCall.$promise.then(function(data){
+          if(key === 1) { 
+            // console.log("cek");
+            arr[index].y = data.init;
+            console.log(data.init, data.ring, data.accept, index)
+          }
+          //get verified user data
+          else if(key === 2){ 
+            arr[index].y = data.ring;
+            // console.log(callback.inrangever)
+          }
+          else{
+            arr[index].y = data.accept;
+          }
+      })
+    }
+
+    function loadCallData(date, key){
+
+      var dataArray = initializeDate(date);
+      
+
+      console.log(date)
+      var i=0;
+      var callService = new cdrs.getCallCount();
+      var timestart = moment(date).startOf('isoweek').format("MM/DD/YYYY h:mm:ss A").toString();
+      
+      console.log(timestart)
+      for (var d = new Date(timestart); d <= date; d.setDate(d.getDate() + 1)) {
+        var starttime = moment(d).startOf('day').format("MM/DD/YYYY h:mm:ss A").toString();
+        var endtime = moment(d).endOf('day').format("MM/DD/YYYY h:mm:ss A").toString();
+        // console.log(userService.save({starttime,endtime}));
+        fetchCall(d, dataArray, key, i, callService);
+        i++;
+      };
+
+      console.log(dataArray, dataArray.length)
+      return dataArray;
+    }
+
+    function populateCallChartData(date){
+      var init = loadCallData(date,1)
+      var ring = loadCallData(date,2)
+      var accept = loadCallData(date,3)
+
+      return [
+          {
+              values: init, 
+              key: 'Call Attempt'
+          },
+          {
+              values: ring, 
+              key: 'Incoming Call'
+          },
+          {
+              values: accept, 
+              key: 'Accepted Call'
+          }
+      ];
+    }
+
+      
+    
+
+}
+
+})();
