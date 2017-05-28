@@ -8,11 +8,16 @@
   /** @ngInject */
   function OnlineReputationController(taforSMM, moment) {
 
+<<<<<<< HEAD
     var vm = this;
+=======
+    // var vm = this;
+>>>>>>> c671c17b3ba781d0a40c014b7cf773271b8dd8e4
     // vm.time = {};
     // vm.showChart = false;
     // vm.tabs = 'graph';
 
+<<<<<<< HEAD
       vm.sentimentConfig = {
           options: {
           chart: {
@@ -43,6 +48,8 @@
       }
 
 
+=======
+>>>>>>> c671c17b3ba781d0a40c014b7cf773271b8dd8e4
     // vm.dateOptions = {
     //   formatYear : 'YYYY',
     //   startingDay : 1

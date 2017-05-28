@@ -1,5 +1,6 @@
 <div class="page">
 <acme-navbar></acme-navbar>
+<<<<<<< HEAD
 <div class="container-fluid no-left-padding">
 <div class="col-md-2 no-left-padding">
   <acme-sidebar></acme-sidebar>
@@ -19,11 +20,39 @@
       <input type="text" class="form-control" uib-datepicker-popup="{{engagement.format}}" ng-model="engagement.starttime" is-open="engagement.popup1.opened" datepicker-options="engagement.dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
       <span class="input-group-btn">
         <button type="button" class="btn btn-default" ng-click="engagement.open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+=======
+<div class="container">
+<div class="col-md-12">
+  <h3>Call Data Record Statistics</h3>
+  <a ui-sref="dashboard" class="home-link">Home</a>
+  <span class="dashboard-subtitle ">  | Full Statistics</span>
+  <div class="clear"></div>
+
+  <!-- <div class="container-period col-md-12">
+    <h4>Choose Period : </h4>
+    <label for="date" class="radio-inline">
+      <input id="date" type="radio" name="option" ng-model="options" value="date"> Date Range
+    </label>
+    <label for="month" class="radio-inline">
+      <input id="month" type="radio" name="option" ng-model="options" value="month">Monthly
+    </label>
+    <br>
+    <div class="clear"></div>
+    <div class="col-md-10 add-spacing" ng-show="options == 'date' ">
+    <form name="frm" ng-submit="statistics.submitDate()"> 
+    <div class="col-md-4">
+      <span>Start time</span>
+    <p class="input-group">
+      <input type="text" class="form-control" uib-datepicker-popup="{{statistics.format}}" ng-model="statistics.time.starttime" is-open="statistics.popup1.opened" datepicker-options="statistics.dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+      <span class="input-group-btn">
+        <button type="button" class="btn btn-default" ng-click="statistics.open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+>>>>>>> c671c17b3ba781d0a40c014b7cf773271b8dd8e4
       </span>
     </p>
     </div> 
     
     <div class="col-md-4">
+<<<<<<< HEAD
     <span>To</span>
     <p class="input-group">
       <input type="text" class="form-control" uib-datepicker-popup="{{engagement.format}}" ng-model="engagement.endtime" is-open="engagement.popup2.opened" datepicker-options="engagement.dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
@@ -122,6 +151,146 @@
       </tbody>
     </table>
   </div>
+=======
+    <span>End time</span>
+    <p class="input-group">
+      <input type="text" class="form-control" uib-datepicker-popup="{{statistics.format}}" ng-model="statistics.time.endtime" is-open="statistics.popup2.opened" datepicker-options="statistics.dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+      <span class="input-group-btn">
+        <button type="button" class="btn btn-default" ng-click="statistics.open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+      </span>
+    </p>
+  </div> -->
+  <div class="clear"></div>
+    <button type="submit" class="btn btn-default">See Statistics</button>
+    </form>
+    </div>
+
+    
+    <!-- <div class="col-md-4 add-spacing" ng-show="options == 'month' ">
+      <form name="form" ng-submit="statistics.submitMonth()"> 
+      <span>Choose Month</span>
+    <p class="input-group">
+      <input type="text" class="form-control" uib-datepicker-popup="{{statistics.format}}" ng-model="statistics.month" is-open="statistics.popup3.opened" datepicker-options="{minMode: 'month'}" uib-datepicker-mode="'month'"/>
+      <span class="input-group-btn">
+    <button type="button" class="btn btn-default" ng-click="statistics.open3()"><i class="glyphicon glyphicon-calendar"></i></button></span>
+    </p>
+    <button type="submit" class="btn btn-default">See Statistics</button>
+    </form>
+    </div> -->
+
+
+  </div>
+
+  <div class=" caption-container col-md-12">
+    <!-- <div class="first-caption col-md-12">
+        <div class="col-md-4">
+          <span class="number">{{statistics.callavg | number:3 }}</span>
+          <span class="caption">Average Call Attempts</span>
+        </div>
+        <div class="col-md-4">
+          <span class="number">{{statistics.callavgperday | number:5 }}</span>
+          <span class="caption">Average Call Attempts/User/Day</span>
+        </div>
+        <div class="last-caption col-md-4">
+          <span class="number">{{statistics.alluser}}</span>
+          <span class="caption">Total User</span>
+        </div>
+      </div> -->
+      <div class="clear"></div>
+      <div class="second-caption col-md-12">
+      <!-- <div class="col-md-4">
+        <span class="number">{{statistics.allveruser}}</span>
+        <span class="caption">Total Verified User</span>
+      </div> -->
+      <!-- <div class="col-md-4">
+        <span class="number">{{statistics.callattempt}}</span>
+        <span class="caption">Total Call Attempts</span>
+      </div> -->
+      <!-- <div class="last-caption col-md-4">
+        <span class="number">{{statistics.days}}</span>
+        <span class="caption">Total Days</span>
+      </div> -->
+    </div>
+  </div>
+
+  <div class="clear"></div>
+
+  <div class="separator-tabs">
+    <table>
+          <tr>
+            
+            <td class="column-with-border"><a ng-click="statistics.table()" class="tabs-link">
+              <i class="glyphicon glyphicon-th-large"></i> Table</a></td>
+
+            <td class="column-data"><a ng-click="statistics.graph()" class="tabs-link">
+              <i class="glyphicon glyphicon-signal"></i> Graphic/Chart</a></td>
+          </tr>
+        </table>
+  </div>
+
+  <div class="clear"></div>
+
+  <div class="table-container col-md-12" ng-show="statistics.tabs == 'table' ">
+    <h4 class="dashboard-subtitle">Statistics This Month</h4>
+    <table class="statistics-table">
+      <thead>
+        <tr class="head">
+        <td>Date</td>
+        <td>New Users</td>
+        <td>New Verified Users</td>
+        <td>Total Users</td>
+        <td>Total Verified Uses</td>
+        <td>Call Attempts</td>
+        <td>Incoming Calls</td>
+        <td>Accepted Calls</td>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- <tr ng-repeat="dt in statistics.tableData">
+          <td>{{dt.name}}</td>
+          <td>{{dt.inrange}}</td>
+          <td>{{dt.inrangever}}</td>
+          <td>{{dt.all}}</td>
+          <td>{{dt.allver}}</td>
+          <td>{{dt.init}}</td>
+          <td>{{dt.ring}}</td>
+          <td>{{dt.accept}}</td>
+        </tr> -->
+      </tbody>
+    </table>
+  </div>
+  
+  <!-- <div class="container-chart col-md-12" ng-show="statistics.tabs == 'graph' ">
+    <h4>All Statistics</h4>
+    <div class="col-md-12 card-chart">
+      <highchart id="newUserChart" config="statistics.newUserChartOptions"></highchart>
+    </div>
+    <div class="col-md-12 card-chart">
+      <highchart id="allUserChart" config="statistics.allUserChartOptions"></highchart>
+    </div>
+    <div class="col-md-12 card-chart">
+      <highchart id="callChart" config="statistics.callChartOptions"></highchart>
+    </div>
+    <div class="col-md-12 card-chart">
+      <highchart id="callChart" config="statistics.pieChartConfig"></highchart>
+      <ul class="level-caption">
+        <li ng-repeat="level in statistics.userLevel">
+          <span class="glyphicon glyphicon-stop" style="color:{{level.color}}"></span>
+          Level {{level.level}} : {{level.value}}
+        </li>
+      </ul>
+    </div>
+     <div class="col-md-12 card-chart">
+      <highchart id="callChart" config="statistics.deviceChartConfig"></highchart>
+      <ul class="level-caption">
+        <li ng-repeat="level in statistics.device">
+          <span class="glyphicon glyphicon-stop" style="color:{{level.color}}"></span>
+          Device {{level.level}} : {{level.value}}
+        </li>
+      </ul>
+    </div>
+  </div> -->
+>>>>>>> c671c17b3ba781d0a40c014b7cf773271b8dd8e4
 
 </div>
 </div>

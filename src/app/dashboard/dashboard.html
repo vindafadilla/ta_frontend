@@ -1,5 +1,6 @@
 <div class="page">
 <acme-navbar></acme-navbar>
+<<<<<<< HEAD
 <div class="container-fluid no-left-padding">
 <div class="col-md-2 no-left-padding">
 	<acme-sidebar></acme-sidebar>
@@ -92,6 +93,55 @@
 	<span class="home-link">Overall Customer Need</span>
 	<span class="dashboard-subtitle ">  | Summary</span>
 		<div class="first-card week-badges top-margin-10">
+=======
+<div class="container">
+<div class="col-md-12">
+	<h3>Dashboard</h3>
+	<a ui-sref="dashboard" class="home-link">Home</a>
+	<span class="dashboard-subtitle ">  | Today Statistics</span>
+	<div class="badges-container col-md-12">
+		<div class="col-md-3 badges-stat">
+			<div class="container col-md-12 badges-inner">
+				<div class="col-md-2 icon"><i class="glyphicon glyphicon-user"></i></div>
+				<!-- <div class="col-md-10 badges-stat-desc">
+					<span class="badges-number">{{dashboard.newUser}}</span>
+					<span class="badges-title">New User</span>
+				</div> -->
+			</div>
+		</div>
+		<div class="col-md-3 badges-stat">
+			<div class="container col-md-12 badges-inner">
+				<div class="col-md-2 icon"><i class="glyphicon glyphicon-ok"></i></div>
+				<!-- <div class="col-md-10 badges-stat-desc">
+					<span class="badges-number">{{dashboard.newVerifiedUser}}</span>
+					<span class="badges-title">New Verified User</span>
+				</div> -->
+			</div>
+		</div>
+		<div class="col-md-3 badges-stat">
+			<div class="container col-md-12 badges-inner">
+				<div class="col-md-2 icon"><i class="glyphicon glyphicon-earphone"></i></div>
+				<!-- <div class="col-md-10 badges-stat-desc">
+					<span class="badges-number">{{dashboard.callAttempt}}</span>
+					<span class="badges-title">Call Attempt</span>
+				</div> -->
+			</div>
+		</div>
+		<div class="col-md-3 badges-stat">
+			<div class="container col-md-12 badges-inner">
+				<div class="col-md-2 icon"><i class="glyphicon glyphicon-transfer"></i></div>
+				<!-- <div class="col-md-10 badges-stat-desc">
+					<span class="badges-number">{{dashboard.avgCallAttempt}}</span>
+					<span class="badges-title">Incoming Call</span>
+				</div> -->
+			</div>
+		</div>
+	</div>
+	
+	<div class="container-chart col-md-12">
+	<h4 class="dashboard-subtitle ">User Statistics This Week</h4>
+		<div class="first-card week-badges">
+>>>>>>> c671c17b3ba781d0a40c014b7cf773271b8dd8e4
 			<table>
 				<!-- <tr>
 					<td class="column-with-border">Quick Report for User Statistics</td>
@@ -110,7 +160,47 @@
 		
 	</div>
 
+<<<<<<< HEAD
 	
+=======
+	<div class="container-chart col-md-12">
+		<div class="col-md-6">
+			<h4 class="dashboard-subtitle ">Call Statistics This Week</h4>
+			<div class="first-card week-badges">
+				<table>
+					<!-- <tr>
+						<td class="column-with-border">This Week</td>
+						<td class="column-data"><i class="amount">{{dashboard.attempt}}</i><br> Call Attempt</td>
+						<td class="column-data"><i class="amount">{{dashboard.incoming}} </i><br> Incoming Call</td>
+						<td class="column-data"><i class="amount">{{dashboard.all}} </i><br> Accepted Call</td>
+					</tr> -->
+				</table>
+			</div>
+			<div class="first-card chart-card">
+				<!-- <highchart id="callChart" config="dashboard.callChartConfig" class="span10"></highchart> -->
+			</div>
+		</div>
+		<div class="col-md-6">
+			<h4 class="dashboard-subtitle ">Device Used by User</h4>
+			<div class="chart-card">
+				<!-- <highchart id="callChart" config="dashboard.deviceChartConfig" class="span10"></highchart> -->
+    		</div>
+    		<div class="week-badges">
+				<table>
+					<!-- <tr>
+						<td class="column-with-border">This Week</td>
+						<td class="column-data"><i class="amount">{{dashboard.lenovo}}</i><br>Lenovo</td>
+						<td class="column-data"><i class="amount">{{dashboard.samsung}}</i><br>Samsung</td>
+						<td class="column-data"><i class="amount">{{dashboard.unknown}}</i><br>Unknown</td>
+						<td class="column-data"><i class="amount">{{dashboard.sony}}</i><br>Sony</td>
+						<td class="column-data"><i class="amount">{{dashboard.andromax}}</i><br>Andromax</td>
+					</tr> -->
+				</table>
+			</div>
+		</div>
+			
+		</div>
+>>>>>>> c671c17b3ba781d0a40c014b7cf773271b8dd8e4
 	</div>
 </div>
 </div>
